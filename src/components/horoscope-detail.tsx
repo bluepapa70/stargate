@@ -73,7 +73,7 @@ export function HoroscopeDetail({
                     {formattedDate}
                   </p>
                   <h1 className="mt-2 font-display text-5xl leading-none text-deep sm:text-6xl">
-                    {sign.name} 상세 운세
+                    {sign.name}
                   </h1>
                 </div>
               </div>
