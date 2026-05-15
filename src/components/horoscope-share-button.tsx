@@ -15,7 +15,6 @@ export function HoroscopeShareButton({ title }: HoroscopeShareButtonProps) {
     if (navigator.share) {
       await navigator.share({
         title,
-        text: `${title} 상세 페이지`,
         url: shareUrl,
       });
       return;
