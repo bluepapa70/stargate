@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6efe3;
-  --foreground: #221b16;
-  --muted: #6d5f53;
-  --panel: rgba(255, 251, 245, 0.72);
-  --panel-strong: rgba(255, 248, 238, 0.9);
-  --line: rgba(92, 70, 48, 0.14);
-  --accent: #a8572a;
-  --accent-strong: #793613;
-  --accent-soft: #efcfb2;
-  --deep: #2d1d17;
+  --background: #080c1a;
+  --foreground: #e4daf5;
+  --muted: #8878a8;
+  --panel: rgba(15, 8, 38, 0.76);
+  --panel-strong: rgba(20, 10, 48, 0.9);
+  --line: rgba(160, 130, 220, 0.2);
+  --accent: #8b6ad0;
+  --accent-strong: #c4a0f5;
+  --accent-soft: rgba(120, 85, 200, 0.26);
+  --deep: #ede6ff;
 }
 
 @theme inline {
@@ -42,9 +42,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
   background-image:
-    radial-gradient(circle at top left, rgba(255, 215, 170, 0.65), transparent 28%),
-    radial-gradient(circle at top right, rgba(149, 87, 44, 0.2), transparent 24%),
-    linear-gradient(180deg, #f8f1e8 0%, #f3e8d8 48%, #f7f1ea 100%);
+    radial-gradient(ellipse 80% 55% at 10% 12%, rgba(110, 45, 200, 0.22) 0%, transparent 68%),
+    radial-gradient(ellipse 60% 50% at 88% 8%, rgba(45, 18, 160, 0.28) 0%, transparent 58%),
+    radial-gradient(ellipse 70% 55% at 50% 96%, rgba(25, 45, 170, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 93% 55%, rgba(130, 35, 185, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 28% 72%, rgba(55, 20, 140, 0.16) 0%, transparent 60%),
+    linear-gradient(165deg, #0c061e 0%, #070d24 35%, #050a1c 65%, #090718 100%);
 }
 
 a {
@@ -53,13 +56,15 @@ a {
 }
 
 ::selection {
-  background: rgba(168, 87, 42, 0.18);
+  background: rgba(155, 114, 207, 0.38);
 }
 
 .star-grid {
   background-image:
-    radial-gradient(circle, rgba(121, 54, 19, 0.12) 0.7px, transparent 0.9px),
-    radial-gradient(circle, rgba(121, 54, 19, 0.08) 0.5px, transparent 0.8px);
-  background-position: 0 0, 16px 18px;
-  background-size: 32px 32px, 48px 48px;
+    radial-gradient(circle, rgba(255, 255, 255, 0.88) 0.45px, transparent 0.7px),
+    radial-gradient(circle, rgba(210, 190, 255, 0.65) 0.35px, transparent 0.55px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.5) 0.3px, transparent 0.5px),
+    radial-gradient(circle, rgba(180, 160, 255, 0.42) 0.4px, transparent 0.6px);
+  background-position: 0 0, 23px 20px, 11px 31px, 38px 8px;
+  background-size: 44px 40px, 68px 58px, 30px 35px, 52px 48px;
 }

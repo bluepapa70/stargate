@@ -87,7 +87,7 @@ export default function Home() {
   return (
     <main className="star-grid flex flex-1 flex-col">
       <section className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-5 py-6 sm:px-8 lg:px-12">
-        <header className="mb-10 flex flex-col gap-6 rounded-[2rem] border border-line bg-panel px-6 py-6 shadow-[0_18px_60px_rgba(91,61,38,0.08)] backdrop-blur md:px-8">
+        <header className="mb-10 flex flex-col gap-6 rounded-[2rem] border border-line bg-panel px-6 py-6 shadow-[0_18px_60px_rgba(80,20,180,0.18)] backdrop-blur md:px-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-sm font-semibold tracking-[0.28em] text-accent-strong uppercase">
@@ -97,14 +97,14 @@ export default function Home() {
                 오늘의 별자리 운세
               </h1>
             </div>
-            <div className="max-w-md rounded-[1.5rem] border border-line bg-white/65 px-5 py-4 text-sm leading-7 text-muted">
+            <div className="max-w-md rounded-[1.5rem] border border-line bg-white/[0.06] px-5 py-4 text-sm leading-7 text-muted">
               오늘의 흐름과 행운 요소를 빠르게 확인하는 가벼운 운세 서비스입니다. 입력은 생년월일만 받고, 결과는 한 화면에서 바로 보여줍니다.
             </div>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
             <form
-              className="rounded-[1.75rem] bg-deep px-6 py-6 text-white shadow-[0_16px_40px_rgba(34,27,22,0.24)]"
+              className="rounded-[1.75rem] bg-[#0f0825] px-6 py-6 text-white shadow-[0_16px_40px_rgba(80,20,200,0.4)]"
               onSubmit={(event) => {
                 event.preventDefault();
                 const sign = getZodiacSign(birthDate);
@@ -155,7 +155,7 @@ export default function Home() {
               ].map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-[1.5rem] border border-line bg-panel-strong px-5 py-5 shadow-[0_12px_30px_rgba(90,61,39,0.06)]"
+                  className="rounded-[1.5rem] border border-line bg-panel-strong px-5 py-5 shadow-[0_12px_30px_rgba(60,20,140,0.2)]"
                 >
                   <p className="text-sm font-semibold tracking-[0.18em] text-accent-strong uppercase">
                     {item.title}
@@ -167,7 +167,7 @@ export default function Home() {
           </div>
         </header>
 
-        <aside className="rounded-[2rem] border border-line bg-panel px-5 py-5 shadow-[0_18px_50px_rgba(90,61,39,0.06)] sm:px-6">
+        <aside className="rounded-[2rem] border border-line bg-panel px-5 py-5 shadow-[0_18px_50px_rgba(80,20,180,0.18)] sm:px-6">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">
@@ -182,7 +182,7 @@ export default function Home() {
               <Link
                 key={sign.key}
                 href={`/horoscope/${todaySnapshot.dateKey}/${sign.key}?birthDate=${sampleBirthDates[index]}`}
-                className="flex items-center gap-4 rounded-[1.3rem] border border-line bg-white/70 px-4 py-4 text-left transition hover:-translate-y-0.5 hover:bg-white"
+                className="flex items-center gap-4 rounded-[1.3rem] border border-line bg-white/[0.06] px-4 py-4 text-left transition hover:-translate-y-0.5 hover:bg-white/[0.12]"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft">
                   <svg viewBox="0 0 24 24" className="h-6 w-6 fill-accent-strong" aria-hidden="true">
