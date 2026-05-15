@@ -38,8 +38,6 @@ export default function Home() {
                 StarGate Horoscope
               </p>
               <h1 className="mt-3 max-w-3xl font-display text-5xl leading-none text-deep sm:text-6xl">
-                생년월일로 찾는
-                <br />
                 오늘의 별자리 운세
               </h1>
             </div>
