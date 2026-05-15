@@ -84,9 +84,7 @@ export default function Home() {
                   오늘 운세 보기
                 </button>
               </div>
-              <p className="mt-4 text-sm leading-6 text-[#dec8b4]">
-                생년월일로 태양 별자리를 계산한 뒤, 공유 가능한 상세 URL로 이동합니다. 출생시간과 출생지는 받지 않아 진입 장벽을 낮춘 MVP 구성입니다.
-              </p>
+
               <p className="mt-2 text-xs leading-6 text-[#cba98e]">
                 운세 데이터 기준일: {todaySnapshot.dateKey}
                 {todaySnapshot.hasOverrides ? " · 날짜별 오버라이드 적용 중" : " · 기본 템플릿 사용 중"}
