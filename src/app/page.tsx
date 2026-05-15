@@ -63,8 +63,8 @@ export default function Home() {
               </p>
               <div className="mt-5 flex justify-center">
                 <img
-                  src="/leo.png"
-                  alt="사자자리"
+                  src="/zodiac.gif"
+                  alt="황도 12궁 별자리"
                   className="w-64 h-auto drop-shadow-[0_0_20px_rgba(196,160,245,0.4)]"
                 />
               </div>
