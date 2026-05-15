@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getHoroscopeSnapshot } from "@/lib/horoscope-data";
 import { getZodiacSign, zodiacSigns } from "@/lib/zodiac";
 
@@ -51,38 +51,6 @@ const todaySnapshot = getHoroscopeSnapshot();
 export default function Home() {
   const router = useRouter();
   const [birthDate, setBirthDate] = useState("");
-
-  useEffect(() => {
-    if (document.getElementById("kakao-sdk")) return;
-    const script = document.createElement("script");
-    script.id = "kakao-sdk";
-    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js";
-    script.async = true;
-    script.onload = () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const kakao = (window as any).Kakao;
-      const key = process.env.NEXT_PUBLIC_KAKAO_APP_KEY;
-      if (kakao && key && !kakao.isInitialized()) kakao.init(key);
-    };
-    document.head.appendChild(script);
-  }, []);
-
-  const handleKakaoShare = () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const kakao = (window as any).Kakao;
-    if (!kakao?.isInitialized()) return;
-    kakao.Share.sendDefault({
-      objectType: "feed",
-      content: {
-        title: "오늘의 별자리 운세 — StarGate",
-        description: "생년월일을 입력하면 별자리를 계산해 오늘의 운세를 알려드립니다.",
-        link: {
-          mobileWebUrl: window.location.origin,
-          webUrl: window.location.origin,
-        },
-      },
-    });
-  };
 
   return (
     <main className="star-grid flex flex-1 flex-col">
@@ -198,22 +166,6 @@ export default function Home() {
           </div>
         </aside>
 
-        <footer className="mt-6 flex justify-center pb-2">
-          <button
-            onClick={handleKakaoShare}
-            className="flex items-center gap-2.5 rounded-full bg-[#FEE500] px-6 py-3.5 text-sm font-bold text-[#3C1E1E] transition hover:brightness-95 active:brightness-90"
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M10 2C5.582 2 2 4.91 2 8.5c0 2.29 1.388 4.307 3.5 5.52L4.625 17l3.838-2.525A9.7 9.7 0 0 0 10 14.5c4.418 0 8-2.91 8-6.5S14.418 2 10 2Z"
-                fill="#3C1E1E"
-              />
-            </svg>
-            카카오톡으로 공유하기
-          </button>
-        </footer>
       </section>
     </main>
   );
