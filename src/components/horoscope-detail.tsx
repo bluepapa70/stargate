@@ -187,6 +187,33 @@ export function HoroscopeDetail({
                 </article>
               ))}
             </div>
+
+            <div className="mt-6 border-t border-line pt-6">
+              <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">
+                Compatibility
+              </p>
+              <h2 className="mt-2 font-display text-3xl text-deep">추천 궁합</h2>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {compatibilityLinks.map((item) => (
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    className="block rounded-[1.3rem] border border-line bg-white/[0.07] px-4 py-4 transition hover:-translate-y-0.5 hover:bg-white/[0.12]"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-semibold text-deep">{sign.name} × {item.name}</p>
+                        <p className="mt-1 text-sm text-muted">{item.insight.label}</p>
+                      </div>
+                      <div className="rounded-full bg-accent-soft px-3 py-1 text-sm font-bold text-accent-strong">
+                        {item.insight.score}점
+                      </div>
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-deep">{item.insight.summary}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
 
           <aside className="rounded-[2rem] border border-line bg-panel px-5 py-5 shadow-[0_18px_50px_rgba(80,20,180,0.18)] sm:px-6">
@@ -212,33 +239,6 @@ export function HoroscopeDetail({
                   <p className="mt-1 text-sm text-muted">/{dateKey}/{item.key}</p>
                 </Link>
               ))}
-            </div>
-
-            <div className="mt-8 border-t border-line pt-8">
-              <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">
-                Compatibility
-              </p>
-              <h2 className="mt-2 font-display text-3xl text-deep">추천 궁합</h2>
-              <div className="mt-5 space-y-3">
-                {compatibilityLinks.map((item) => (
-                  <Link
-                    key={item.key}
-                    href={item.href}
-                    className="block rounded-[1.3rem] border border-line bg-white/[0.07] px-4 py-4 transition hover:-translate-y-0.5 hover:bg-white/[0.12]"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="font-semibold text-deep">{sign.name} × {item.name}</p>
-                        <p className="mt-1 text-sm text-muted">{item.insight.label}</p>
-                      </div>
-                      <div className="rounded-full bg-accent-soft px-3 py-1 text-sm font-bold text-accent-strong">
-                        {item.insight.score}점
-                      </div>
-                    </div>
-                    <p className="mt-3 text-sm leading-7 text-deep">{item.insight.summary}</p>
-                  </Link>
-                ))}
-              </div>
             </div>
           </aside>
         </section>
