@@ -115,62 +115,34 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <aside className="rounded-[2rem] border border-line bg-panel px-5 py-5 shadow-[0_18px_50px_rgba(90,61,39,0.06)] sm:px-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">
-                  Zodiac Guide
-                </p>
-                <h2 className="mt-2 font-display text-3xl text-deep">별자리 한눈에 보기</h2>
-              </div>
-              <p className="text-sm text-muted">12 Signs</p>
-            </div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {zodiacSigns.map((sign, index) => (
-                <Link
-                  key={sign.key}
-                  href={`/horoscope/${todaySnapshot.dateKey}/${sign.key}?birthDate=${sampleBirthDates[index]}`}
-                  className="flex items-center gap-4 rounded-[1.3rem] border border-line bg-white/70 px-4 py-4 text-left transition hover:-translate-y-0.5 hover:bg-white"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft font-display text-lg text-accent-strong">
-                    {signSymbols[index]}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-deep">{sign.name}</p>
-                    <p className="text-sm text-muted">{sign.dateRange}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </aside>
-
-          <section
-            id="result"
-            className="rounded-[2rem] border border-line bg-panel px-5 py-5 shadow-[0_20px_55px_rgba(90,61,39,0.08)] sm:px-6"
-          >
-            <div className="flex h-full min-h-[420px] flex-col justify-center rounded-[1.7rem] border border-dashed border-line bg-white/55 px-6 py-8">
-              <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">Shareable Detail Page</p>
-              <h2 className="mt-4 font-display text-4xl text-deep sm:text-5xl">
-                결과는 이제 별도 URL로
-                <br />
-                분리된 상세 페이지에서 보여줍니다.
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-muted">
-                홈에서는 별자리를 계산하고, 상세 운세는 날짜와 별자리가 포함된 URL로 이동합니다. 이 주소는 그대로 복사하거나 공유할 수 있어 재방문과 외부 유입에 유리합니다.
+        <aside className="rounded-[2rem] border border-line bg-panel px-5 py-5 shadow-[0_18px_50px_rgba(90,61,39,0.06)] sm:px-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">
+                Zodiac Guide
               </p>
-              <div className="mt-8 rounded-[1.5rem] bg-deep px-5 py-5 text-[#f8eadb]">
-                <p className="text-xs tracking-[0.2em] text-[#f2bf94] uppercase">Example</p>
-                <p className="mt-3 break-all text-lg leading-8">
-                  /horoscope/{todaySnapshot.dateKey}/aries
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[#dcc3ae]">
-                  각 상세 페이지는 개별 메타데이터를 가져서 검색 결과나 메신저 미리보기에도 활용할 수 있습니다.
-                </p>
-              </div>
+              <h2 className="mt-2 font-display text-3xl text-deep">별자리 한눈에 보기</h2>
             </div>
-          </section>
-        </section>
+            <p className="text-sm text-muted">12 Signs</p>
+          </div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {zodiacSigns.map((sign, index) => (
+              <Link
+                key={sign.key}
+                href={`/horoscope/${todaySnapshot.dateKey}/${sign.key}?birthDate=${sampleBirthDates[index]}`}
+                className="flex items-center gap-4 rounded-[1.3rem] border border-line bg-white/70 px-4 py-4 text-left transition hover:-translate-y-0.5 hover:bg-white"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft font-display text-lg text-accent-strong">
+                  {signSymbols[index]}
+                </div>
+                <div>
+                  <p className="font-semibold text-deep">{sign.name}</p>
+                  <p className="text-sm text-muted">{sign.dateRange}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </aside>
       </section>
     </main>
   );
