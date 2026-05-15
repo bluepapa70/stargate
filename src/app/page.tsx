@@ -61,7 +61,7 @@ export default function Home() {
               <p className="text-sm font-semibold tracking-[0.28em] text-accent-strong uppercase">
                 StarGate Horoscope
               </p>
-              <h1 className="mt-3 max-w-3xl font-display text-5xl leading-none text-deep sm:text-6xl">
+              <h1 className="mt-3 max-w-3xl font-display text-4xl leading-none text-deep sm:text-5xl">
                 오늘의 별자리 운세
               </h1>
             </div>
