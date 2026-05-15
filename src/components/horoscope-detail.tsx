@@ -64,18 +64,20 @@ export function HoroscopeDetail({
               >
                 StarGate Horoscope
               </Link>
-              <div className="mt-6 flex items-center gap-4">
-                <div className="h-16 w-16 overflow-hidden rounded-full bg-accent-soft shadow-[0_12px_24px_rgba(120,60,200,0.2)]">
-                  <img src={constellationImages[sign.key]} alt={sign.name} className="h-full w-full object-cover" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">
-                    {formattedDate}
-                  </p>
-                  <h1 className="mt-2 font-display text-5xl leading-none text-deep sm:text-6xl">
-                    {sign.name}
-                  </h1>
-                </div>
+              <div className="mt-6 flex justify-center">
+                <img
+                  src={constellationImages[sign.key]}
+                  alt={sign.name}
+                  className="w-64 h-auto drop-shadow-[0_0_20px_rgba(196,160,245,0.4)]"
+                />
+              </div>
+              <div className="mt-3">
+                <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">
+                  {formattedDate}
+                </p>
+                <h1 className="mt-2 font-display text-5xl leading-none text-deep sm:text-6xl">
+                  {sign.name}
+                </h1>
               </div>
               <p className="mt-5 text-lg leading-8 text-muted">
                 {sign.dateRange} · 데이터 기준 {dateKey}
