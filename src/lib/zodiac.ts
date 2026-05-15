@@ -19,6 +19,8 @@ export type ZodiacInfo = {
   summary: string;
   element: "fire" | "earth" | "air" | "water";
   modality: "cardinal" | "fixed" | "mutable";
+  birthstone: string;
+  birthstoneMeaning: string[];
 };
 
 export const zodiacSigns: ZodiacInfo[] = [
@@ -29,6 +31,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "빠른 결단이 강점이 되는 날",
     element: "fire",
     modality: "cardinal",
+    birthstone: "다이아몬드",
+    birthstoneMeaning: ["용기", "강한 의지", "승리와 자신감"],
   },
   {
     key: "taurus",
@@ -37,6 +41,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "작은 안정이 큰 만족으로 이어지는 날",
     element: "earth",
     modality: "fixed",
+    birthstone: "에메랄드",
+    birthstoneMeaning: ["사랑", "풍요", "안정감"],
   },
   {
     key: "gemini",
@@ -45,6 +51,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "대화와 정보가 기회를 만드는 날",
     element: "air",
     modality: "mutable",
+    birthstone: "진주 · 알렉산드라이트",
+    birthstoneMeaning: ["지혜", "변화", "소통"],
   },
   {
     key: "cancer",
@@ -53,6 +61,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "감정의 균형이 운을 좌우하는 날",
     element: "water",
     modality: "cardinal",
+    birthstone: "루비",
+    birthstoneMeaning: ["사랑", "보호", "열정"],
   },
   {
     key: "leo",
@@ -61,6 +71,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "존재감이 자연스럽게 드러나는 날",
     element: "fire",
     modality: "fixed",
+    birthstone: "페리도트",
+    birthstoneMeaning: ["태양의 힘", "긍정", "성공"],
   },
   {
     key: "virgo",
@@ -69,6 +81,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "정리와 조율이 성과를 높이는 날",
     element: "earth",
     modality: "mutable",
+    birthstone: "사파이어",
+    birthstoneMeaning: ["지혜", "진실", "차분함"],
   },
   {
     key: "libra",
@@ -77,6 +91,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "관계의 균형이 흐름을 바꾸는 날",
     element: "air",
     modality: "cardinal",
+    birthstone: "오팔",
+    birthstoneMeaning: ["조화", "예술성", "매력"],
   },
   {
     key: "scorpio",
@@ -85,6 +101,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "집중력이 깊이를 만드는 날",
     element: "water",
     modality: "fixed",
+    birthstone: "토파즈",
+    birthstoneMeaning: ["집중력", "열정", "강한 직관"],
   },
   {
     key: "sagittarius",
@@ -93,6 +111,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "가볍게 움직일수록 길이 열리는 날",
     element: "fire",
     modality: "mutable",
+    birthstone: "터키석",
+    birthstoneMeaning: ["여행", "자유", "행운"],
   },
   {
     key: "capricorn",
@@ -101,6 +121,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "꾸준함이 신뢰로 돌아오는 날",
     element: "earth",
     modality: "cardinal",
+    birthstone: "가넷",
+    birthstoneMeaning: ["인내", "성공", "충성심"],
   },
   {
     key: "aquarius",
@@ -109,6 +131,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "새로운 발상이 전환점을 만드는 날",
     element: "air",
     modality: "fixed",
+    birthstone: "자수정",
+    birthstoneMeaning: ["영감", "창의성", "정신적 안정"],
   },
   {
     key: "pisces",
@@ -117,6 +141,8 @@ export const zodiacSigns: ZodiacInfo[] = [
     summary: "직감이 예상보다 정확하게 작동하는 날",
     element: "water",
     modality: "mutable",
+    birthstone: "아쿠아마린",
+    birthstoneMeaning: ["평온", "치유", "순수함"],
   },
 ];
 

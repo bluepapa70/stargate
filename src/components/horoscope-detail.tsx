@@ -138,9 +138,16 @@ export function HoroscopeDetail({
                     <dt className="text-sm text-muted">행운의 숫자</dt>
                     <dd className="font-semibold">{horoscope.luckyNumber}</dd>
                   </div>
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center justify-between gap-4 border-b border-line pb-3">
                     <dt className="text-sm text-muted">행운의 시간</dt>
                     <dd className="font-semibold">{horoscope.luckyTime}</dd>
+                  </div>
+                  <div className="flex items-start justify-between gap-4 pt-1">
+                    <dt className="text-sm text-muted">탄생석</dt>
+                    <dd className="text-right">
+                      <p className="font-semibold">{sign.birthstone}</p>
+                      <p className="mt-0.5 text-xs text-muted">{sign.birthstoneMeaning.join(" · ")}</p>
+                    </dd>
                   </div>
                 </dl>
               </div>
