@@ -118,7 +118,7 @@ export default function Home() {
             >
               <p className="text-sm tracking-[0.24em] text-[#f5d6bb] uppercase">Find My Sign</p>
               <h2 className="mt-3 font-display text-3xl text-[#fff5ea] sm:text-4xl">
-                별자리를 계산하고 오늘의 운세를 확인하세요.
+                나의 별자리로 오늘의 운세를 확인하세요.
               </h2>
               <label className="mt-8 block text-sm font-medium text-[#f8e7d6]" htmlFor="birthDate">
                 생년월일
