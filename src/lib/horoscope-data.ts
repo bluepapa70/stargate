@@ -1,5 +1,6 @@
 import rawHoroscopeData from "@/data/horoscopes.json";
 import { zodiacSigns, type ZodiacKey } from "@/lib/zodiac";
+import { getDailyOverride, hasDailyOverride, getAvailableDates } from "@/lib/daily-overrides";
 
 export type Horoscope = {
   headline: string;
@@ -15,11 +16,8 @@ export type Horoscope = {
   caution: string;
 };
 
-type HoroscopeOverrides = Partial<Record<ZodiacKey, Partial<Horoscope>>>;
-
 type HoroscopeDataset = {
   default: Record<ZodiacKey, Horoscope>;
-  overrides?: Record<string, HoroscopeOverrides>;
 };
 
 export type HoroscopeSnapshot = {
@@ -39,27 +37,23 @@ export function getTodayDateKey(date = new Date()): string {
 }
 
 export function getHoroscopeSnapshot(dateKey = getTodayDateKey()): HoroscopeSnapshot {
-  const overrides = horoscopeData.overrides?.[dateKey] ?? {};
+  const dailyData = getDailyOverride(dateKey);
+  const overrides = (dailyData.horoscopes ?? {}) as Partial<Record<ZodiacKey, Partial<Horoscope>>>;
 
-  const horoscopes = zodiacSigns.reduce<Record<ZodiacKey, Horoscope>>((accumulator, sign) => {
-    const baseHoroscope = horoscopeData.default[sign.key];
-    accumulator[sign.key] = {
-      ...baseHoroscope,
-      ...overrides[sign.key],
-    };
-
-    return accumulator;
+  const horoscopes = zodiacSigns.reduce<Record<ZodiacKey, Horoscope>>((acc, sign) => {
+    acc[sign.key] = { ...horoscopeData.default[sign.key], ...overrides[sign.key] };
+    return acc;
   }, {} as Record<ZodiacKey, Horoscope>);
 
   return {
     dateKey,
-    hasOverrides: Object.keys(overrides).length > 0,
+    hasOverrides: hasDailyOverride(dateKey),
     horoscopes,
   };
 }
 
 export function getAvailableHoroscopeDates(): string[] {
-  return Object.keys(horoscopeData.overrides ?? {}).sort();
+  return getAvailableDates();
 }
 
 export function formatHoroscopeDate(dateKey: string): string {

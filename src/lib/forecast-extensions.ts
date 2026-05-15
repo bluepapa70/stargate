@@ -1,6 +1,7 @@
 import rawForecastExtensions from "@/data/forecast-extensions.json";
 import type { ZodiacKey } from "@/lib/zodiac";
 import { getTodayDateKey } from "@/lib/horoscope-data";
+import { getDailyOverride } from "@/lib/daily-overrides";
 
 export type PeriodForecast = {
   headline: string;
@@ -9,33 +10,24 @@ export type PeriodForecast = {
   caution: string;
 };
 
-type ForecastExtensionsDataset = {
-  weekly: {
-    default: Record<ZodiacKey, PeriodForecast>;
-    overrides?: Record<string, Partial<Record<ZodiacKey, Partial<PeriodForecast>>>>;
-  };
-  monthly: {
-    default: Record<ZodiacKey, PeriodForecast>;
-    overrides?: Record<string, Partial<Record<ZodiacKey, Partial<PeriodForecast>>>>;
-  };
+type ForecastDataset = {
+  weekly: { default: Record<ZodiacKey, PeriodForecast> };
+  monthly: { default: Record<ZodiacKey, PeriodForecast> };
 };
 
-const forecastExtensions = rawForecastExtensions as ForecastExtensionsDataset;
-
-function resolvePeriodForecast(
-  period: ForecastExtensionsDataset["weekly"] | ForecastExtensionsDataset["monthly"],
-  signKey: ZodiacKey,
-  dateKey: string,
-) {
-  return {
-    ...period.default[signKey],
-    ...period.overrides?.[dateKey]?.[signKey],
-  };
-}
+const forecastData = rawForecastExtensions as ForecastDataset;
 
 export function getForecastExtensions(signKey: ZodiacKey, dateKey = getTodayDateKey()) {
+  const dailyData = getDailyOverride(dateKey);
+
   return {
-    weekly: resolvePeriodForecast(forecastExtensions.weekly, signKey, dateKey),
-    monthly: resolvePeriodForecast(forecastExtensions.monthly, signKey, dateKey),
+    weekly: {
+      ...forecastData.weekly.default[signKey],
+      ...(dailyData.weekly?.[signKey] as Partial<PeriodForecast> | undefined),
+    } as PeriodForecast,
+    monthly: {
+      ...forecastData.monthly.default[signKey],
+      ...(dailyData.monthly?.[signKey] as Partial<PeriodForecast> | undefined),
+    } as PeriodForecast,
   };
 }
