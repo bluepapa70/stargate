@@ -164,10 +164,10 @@ export default function PrivacyPage() {
               <p className="mt-2">
                 이메일:{" "}
                 <a
-                  href="mailto:bluepapa70@gmail.com"
+                  href="mailto:bluepapa@gmail.com"
                   className="text-accent-strong underline underline-offset-2"
                 >
-                  bluepapa70@gmail.com
+                  bluepapa@gmail.com
                 </a>
               </p>
             </section>
