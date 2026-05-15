@@ -65,7 +65,7 @@ export default function Home() {
                 <img
                   src="/leo.png"
                   alt="사자자리"
-                  className="h-40 w-40 drop-shadow-[0_0_20px_rgba(196,160,245,0.4)]"
+                  className="w-64 h-auto drop-shadow-[0_0_20px_rgba(196,160,245,0.4)]"
                 />
               </div>
               <h1 className="mt-3 max-w-3xl font-display text-4xl leading-none text-deep sm:text-5xl text-center">
