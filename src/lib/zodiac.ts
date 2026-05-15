@@ -21,6 +21,7 @@ export type ZodiacInfo = {
   modality: "cardinal" | "fixed" | "mutable";
   birthstone: string;
   birthstoneMeaning: string[];
+  birthstoneImage: string;
 };
 
 export const zodiacSigns: ZodiacInfo[] = [
@@ -33,6 +34,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "cardinal",
     birthstone: "다이아몬드",
     birthstoneMeaning: ["용기", "강한 의지", "승리와 자신감"],
+    birthstoneImage: "/birthstones/diamond.jpg",
   },
   {
     key: "taurus",
@@ -43,6 +45,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "fixed",
     birthstone: "에메랄드",
     birthstoneMeaning: ["사랑", "풍요", "안정감"],
+    birthstoneImage: "/birthstones/emerald.jpg",
   },
   {
     key: "gemini",
@@ -53,6 +56,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "mutable",
     birthstone: "진주 · 알렉산드라이트",
     birthstoneMeaning: ["지혜", "변화", "소통"],
+    birthstoneImage: "/birthstones/pearl.jpg",
   },
   {
     key: "cancer",
@@ -63,6 +67,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "cardinal",
     birthstone: "루비",
     birthstoneMeaning: ["사랑", "보호", "열정"],
+    birthstoneImage: "/birthstones/ruby.jpg",
   },
   {
     key: "leo",
@@ -73,6 +78,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "fixed",
     birthstone: "페리도트",
     birthstoneMeaning: ["태양의 힘", "긍정", "성공"],
+    birthstoneImage: "/birthstones/peridot.jpg",
   },
   {
     key: "virgo",
@@ -83,6 +89,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "mutable",
     birthstone: "사파이어",
     birthstoneMeaning: ["지혜", "진실", "차분함"],
+    birthstoneImage: "/birthstones/sapphire.jpg",
   },
   {
     key: "libra",
@@ -93,6 +100,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "cardinal",
     birthstone: "오팔",
     birthstoneMeaning: ["조화", "예술성", "매력"],
+    birthstoneImage: "/birthstones/opal.jpg",
   },
   {
     key: "scorpio",
@@ -103,6 +111,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "fixed",
     birthstone: "토파즈",
     birthstoneMeaning: ["집중력", "열정", "강한 직관"],
+    birthstoneImage: "/birthstones/topaz.jpg",
   },
   {
     key: "sagittarius",
@@ -113,6 +122,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "mutable",
     birthstone: "터키석",
     birthstoneMeaning: ["여행", "자유", "행운"],
+    birthstoneImage: "/birthstones/turquoise.jpg",
   },
   {
     key: "capricorn",
@@ -123,6 +133,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "cardinal",
     birthstone: "가넷",
     birthstoneMeaning: ["인내", "성공", "충성심"],
+    birthstoneImage: "/birthstones/garnet.jpg",
   },
   {
     key: "aquarius",
@@ -133,6 +144,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "fixed",
     birthstone: "자수정",
     birthstoneMeaning: ["영감", "창의성", "정신적 안정"],
+    birthstoneImage: "/birthstones/amethyst.jpg",
   },
   {
     key: "pisces",
@@ -143,6 +155,7 @@ export const zodiacSigns: ZodiacInfo[] = [
     modality: "mutable",
     birthstone: "아쿠아마린",
     birthstoneMeaning: ["평온", "치유", "순수함"],
+    birthstoneImage: "/birthstones/aquamarine.jpg",
   },
 ];
 

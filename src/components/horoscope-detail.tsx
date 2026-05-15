@@ -149,6 +149,13 @@ export function HoroscopeDetail({
                       <p className="mt-0.5 text-xs text-muted">{sign.birthstoneMeaning.join(" · ")}</p>
                     </dd>
                   </div>
+                  <div className="mt-3 overflow-hidden rounded-[1rem]">
+                    <img
+                      src={sign.birthstoneImage}
+                      alt={sign.birthstone}
+                      className="h-32 w-full object-cover"
+                    />
+                  </div>
                 </dl>
               </div>
 
