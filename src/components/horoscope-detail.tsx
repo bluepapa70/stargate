@@ -252,6 +252,10 @@ export function HoroscopeDetail({
             </div>
           </aside>
         </section>
+
+        <footer className="mt-6 flex justify-center pb-2">
+          <HoroscopeShareButton title={pageTitle} />
+        </footer>
       </section>
     </main>
   );
