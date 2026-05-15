@@ -71,7 +71,7 @@ export function HoroscopeDetail({
                   className="w-64 h-auto drop-shadow-[0_0_20px_rgba(196,160,245,0.4)]"
                 />
               </div>
-              <div className="mt-3">
+              <div className="mt-3 text-center">
                 <p className="text-sm font-semibold tracking-[0.2em] text-accent-strong uppercase">
                   {formattedDate}
                 </p>
