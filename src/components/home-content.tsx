@@ -119,24 +119,38 @@ export default function HomeContent({ dateKey, hasOverrides }: Props) {
               </label>
               <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:gap-3 sm:items-end">
                 <div className="flex-1">
+                  <label className="block text-xs font-medium text-[#cba98e] mb-2" htmlFor="year">
+                    연도
+                  </label>
+                  <input
+                    id="year"
+                    name="year"
+                    type="number"
+                    min="1900"
+                    max={new Date().getFullYear()}
+                    value={year}
+                    onChange={(event) => handleBirthdateChange(month, day, event.target.value)}
+                    placeholder="연도"
+                    className="w-full min-h-14 rounded-lg border border-white/15 bg-white/10 px-4 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14"
+                    required
+                  />
+                </div>
+                <div className="flex-1">
                   <label className="block text-xs font-medium text-[#cba98e] mb-2" htmlFor="month">
                     월
                   </label>
-                  <select
+                  <input
                     id="month"
                     name="month"
+                    type="number"
+                    min="1"
+                    max="12"
                     value={month}
                     onChange={(event) => handleBirthdateChange(event.target.value, day, year)}
-                    className="w-full min-h-14 rounded-lg border border-white/15 bg-white/10 px-4 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14 cursor-pointer"
+                    placeholder="월"
+                    className="w-full min-h-14 rounded-lg border border-white/15 bg-white/10 px-4 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14"
                     required
-                  >
-                    <option value="">월 선택</option>
-                    {Array.from({ length: 12 }, (_, i) => (
-                      <option key={i + 1} value={i + 1}>
-                        {i + 1}월
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
                 <div className="flex-1">
                   <label className="block text-xs font-medium text-[#cba98e] mb-2" htmlFor="day">
@@ -151,23 +165,6 @@ export default function HomeContent({ dateKey, hasOverrides }: Props) {
                     value={day}
                     onChange={(event) => handleBirthdateChange(month, event.target.value, year)}
                     placeholder="일"
-                    className="w-full min-h-14 rounded-lg border border-white/15 bg-white/10 px-4 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14"
-                    required
-                  />
-                </div>
-                <div className="flex-1">
-                  <label className="block text-xs font-medium text-[#cba98e] mb-2" htmlFor="year">
-                    연도
-                  </label>
-                  <input
-                    id="year"
-                    name="year"
-                    type="number"
-                    min="1900"
-                    max={new Date().getFullYear()}
-                    value={year}
-                    onChange={(event) => handleBirthdateChange(month, day, event.target.value)}
-                    placeholder="연도"
                     className="w-full min-h-14 rounded-lg border border-white/15 bg-white/10 px-4 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14"
                     required
                   />
