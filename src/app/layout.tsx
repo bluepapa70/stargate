@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: "StarGate | 오늘의 별자리 운세",
   description: "생년월일을 입력하면 별자리를 계산해 오늘의 운세를 알려주는 웹 서비스",
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/icon-512.png",
+  },
 };
 
 export default function RootLayout({
