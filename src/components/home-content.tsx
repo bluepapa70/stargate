@@ -54,6 +54,22 @@ type Props = {
 export default function HomeContent({ dateKey, hasOverrides }: Props) {
   const router = useRouter();
   const [birthDate, setBirthDate] = useState("");
+  const [month, setMonth] = useState("");
+  const [day, setDay] = useState("");
+  const [year, setYear] = useState("");
+
+  const handleBirthdateChange = (newMonth: string, newDay: string, newYear: string) => {
+    setMonth(newMonth);
+    setDay(newDay);
+    setYear(newYear);
+
+    if (newMonth && newDay && newYear) {
+      const formattedDate = `${newYear}-${newMonth.padStart(2, "0")}-${newDay.padStart(2, "0")}`;
+      setBirthDate(formattedDate);
+    } else {
+      setBirthDate("");
+    }
+  };
 
   return (
     <main className="star-grid flex flex-1 flex-col">
@@ -101,19 +117,64 @@ export default function HomeContent({ dateKey, hasOverrides }: Props) {
               <label className="mt-8 block text-sm font-medium text-[#f8e7d6]" htmlFor="birthDate">
                 생년월일
               </label>
-              <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-                <input
-                  id="birthDate"
-                  name="birthDate"
-                  type="date"
-                  value={birthDate}
-                  onChange={(event) => setBirthDate(event.target.value)}
-                  className="min-h-14 flex-1 rounded-full border border-white/15 bg-white/10 px-5 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14"
-                  required
-                />
+              <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:gap-3 sm:items-end">
+                <div className="flex-1">
+                  <label className="block text-xs font-medium text-[#cba98e] mb-2" htmlFor="month">
+                    월
+                  </label>
+                  <select
+                    id="month"
+                    name="month"
+                    value={month}
+                    onChange={(event) => handleBirthdateChange(event.target.value, day, year)}
+                    className="w-full min-h-14 rounded-lg border border-white/15 bg-white/10 px-4 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14 cursor-pointer"
+                    required
+                  >
+                    <option value="">월 선택</option>
+                    {Array.from({ length: 12 }, (_, i) => (
+                      <option key={i + 1} value={i + 1}>
+                        {i + 1}월
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex-1">
+                  <label className="block text-xs font-medium text-[#cba98e] mb-2" htmlFor="day">
+                    일
+                  </label>
+                  <input
+                    id="day"
+                    name="day"
+                    type="number"
+                    min="1"
+                    max="31"
+                    value={day}
+                    onChange={(event) => handleBirthdateChange(month, event.target.value, year)}
+                    placeholder="일"
+                    className="w-full min-h-14 rounded-lg border border-white/15 bg-white/10 px-4 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14"
+                    required
+                  />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-xs font-medium text-[#cba98e] mb-2" htmlFor="year">
+                    연도
+                  </label>
+                  <input
+                    id="year"
+                    name="year"
+                    type="number"
+                    min="1900"
+                    max={new Date().getFullYear()}
+                    value={year}
+                    onChange={(event) => handleBirthdateChange(month, day, event.target.value)}
+                    placeholder="연도"
+                    className="w-full min-h-14 rounded-lg border border-white/15 bg-white/10 px-4 text-base text-white outline-none transition focus:border-[#f2bf94] focus:bg-white/14"
+                    required
+                  />
+                </div>
                 <button
                   type="submit"
-                  className="min-h-14 rounded-full bg-[#f2bf94] px-6 text-sm font-extrabold tracking-[0.18em] text-[#472512] uppercase transition hover:bg-[#f0c9a7]"
+                  className="min-h-14 rounded-lg bg-[#f2bf94] px-6 text-sm font-extrabold tracking-[0.18em] text-[#472512] uppercase transition hover:bg-[#f0c9a7] w-full sm:w-auto"
                 >
                   오늘 운세 보기
                 </button>
