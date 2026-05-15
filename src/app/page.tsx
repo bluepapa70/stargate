@@ -73,7 +73,7 @@ export default function Home() {
               </h1>
             </div>
             <div className="max-w-md rounded-[1.5rem] border border-line bg-white/[0.06] px-5 py-4 text-sm leading-7 text-muted">
-              오늘의 흐름과 행운 요소를 빠르게 확인하는 가벼운 운세 서비스입니다. 입력은 생년월일만 받고, 결과는 한 화면에서 바로 보여줍니다.
+              기원전 3900년경 수메르에서 시작된 별자리 운세는 바빌로니아 칼데아인이 태양의 길, 황도를 12구역으로 나누며 체계를 갖췄습니다. 탄생 순간 태양이 머문 별자리가 당신의 운명을 비추는 빛이 됩니다.
             </div>
           </div>
 
