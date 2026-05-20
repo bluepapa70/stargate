@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLAUDE.md — LLM 코딩 가이드라인</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: #8b949e;
+      font-size: 0.95rem;
+    }
+    .tradeoff {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-left: 4px solid #388bfd;
+      border-radius: 6px;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+    .tradeoff strong { color: #388bfd; }
+    .rule {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .rule h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f0f6fc;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .rule h2 .num {
+      background: #388bfd22;
+      color: #388bfd;
+      border-radius: 50%;
+      width: 1.8rem;
+      height: 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .rule .tagline {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #e3b341;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+    .rule p {
+      color: #c9d1d9;
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+    }
+    .rule ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+    .rule ul li {
+      color: #c9d1d9;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    .rule ul li::marker { color: #388bfd; }
+    .rule code {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 0.15rem 0.4rem;
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 0.82rem;
+      color: #79c0ff;
+    }
+    .rule pre {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1rem;
+      margin: 0.75rem 0;
+      overflow-x: auto;
+    }
+    .rule pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.85rem;
+      color: #e6edf3;
+    }
+    .rule .note {
+      background: #1c2128;
+      border-left: 3px solid #3fb950;
+      border-radius: 0 4px 4px 0;
+      padding: 0.6rem 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: #8b949e;
+    }
+    .rule .note strong { color: #3fb950; }
+    footer {
+      border-top: 1px solid #30363d;
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      color: #8b949e;
+      font-size: 0.85rem;
+    }
+    footer strong { color: #e3b341; }
+    strong { color: #f0f6fc; }
+    a { color: #388bfd; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>CLAUDE.md</h1>
+    <p>LLM 코딩 실수를 줄이기 위한 행동 가이드라인. 프로젝트별 지침과 함께 사용하세요.</p>
+  </header>
+
+  <div class="tradeoff">
+    <strong>Tradeoff:</strong> These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">1</span> Think Before Coding</h2>
+    <div class="tagline">Don't assume. Don't hide confusion. Surface tradeoffs.</div>
+    <p>Before implementing:</p>
+    <ul>
+      <li>State your assumptions explicitly. If uncertain, ask.</li>
+      <li>If multiple interpretations exist, present them — don't pick silently.</li>
+      <li>If a simpler approach exists, say so. Push back when warranted.</li>
+      <li>If something is unclear, stop. Name what's confusing. Ask.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">2</span> Simplicity First</h2>
+    <div class="tagline">Minimum code that solves the problem. Nothing speculative.</div>
+    <ul>
+      <li>No features beyond what was asked.</li>
+      <li>No abstractions for single-use code.</li>
+      <li>No "flexibility" or "configurability" that wasn't requested.</li>
+      <li>No error handling for impossible scenarios.</li>
+      <li>If you write 200 lines and it could be 50, rewrite it.</li>
+    </ul>
+    <p>Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.</p>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">3</span> Surgical Changes</h2>
+    <div class="tagline">Touch only what you must. Clean up only your own mess.</div>
+    <p>When editing existing code:</p>
+    <ul>
+      <li>Don't "improve" adjacent code, comments, or formatting.</li>
+      <li>Don't refactor things that aren't broken.</li>
+      <li>Match existing style, even if you'd do it differently.</li>
+      <li>If you notice unrelated dead code, mention it — don't delete it.</li>
+    </ul>
+    <p>When your changes create orphans:</p>
+    <ul>
+      <li>Remove imports/variables/functions that YOUR changes made unused.</li>
+      <li>Don't remove pre-existing dead code unless asked.</li>
+    </ul>
+    <p>The test: Every changed line should trace directly to the user's request.</p>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">4</span> Goal-Driven Execution</h2>
+    <div class="tagline">Define success criteria. Loop until verified.</div>
+    <p>Transform tasks into verifiable goals:</p>
+    <ul>
+      <li>"Add validation" → "Write tests for invalid inputs, then make them pass"</li>
+      <li>"Fix the bug" → "Write a test that reproduces it, then make it pass"</li>
+      <li>"Refactor X" → "Ensure tests pass before and after"</li>
+    </ul>
+    <p>For multi-step tasks, state a brief plan:</p>
+    <pre><code>1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]</code></pre>
+    <p>Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.</p>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">5</span> No Closing Colons (Korean Output)</h2>
+    <div class="tagline">End Korean sentences with a period, not a colon.</div>
+    <p>When the user writes in Korean, your output is also Korean:</p>
+    <ul>
+      <li>Don't end sentences with <code>:</code> even if the next line is a list or example.</li>
+      <li>LLMs trained on English docs leak the colon habit into Korean. Catch it.</li>
+      <li>The test: every Korean sentence terminator should be <code>.</code>, <code>?</code>, or <code>!</code> — not <code>:</code>.</li>
+      <li>Colons are fine inside code, key-value pairs, or labels. Not as sentence enders.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">6</span> File Header Comments in Korean</h2>
+    <div class="tagline">First line of every new source file: a one-line Korean comment stating its role.</div>
+    <p>When creating a new file:</p>
+    <ul>
+      <li>TypeScript/JavaScript: <code>// 사용자 인증 상태를 관리하는 Context Provider</code></li>
+      <li>Python: <code># KIS API 호출을 비동기로 래핑하는 클라이언트</code></li>
+      <li>SQL: <code>-- 일별 집계 결과를 저장하는 머티리얼라이즈드 뷰</code></li>
+      <li>Place it directly under required directives (<code>'use client'</code>, <code>'use server'</code>, shebang).</li>
+      <li>Skip config files (<code>*.config.ts</code>, <code>package.json</code>, etc.).</li>
+    </ul>
+    <div class="note"><strong>Why:</strong> agents read files selectively, not whole codebases. A one-line Korean header gives instant context so the next session (human or agent) can navigate without re-reading the entire file.</div>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">7</span> Plan + Checklist + Context Notes</h2>
+    <div class="tagline">Before any non-trivial task, produce three artifacts. Don't start coding without them.</div>
+    <ul>
+      <li><strong>Plan</strong> — what we're building and why.</li>
+      <li><strong>Checklist</strong> (<code>checklist.md</code>) — concrete tasks as checkboxes. Tick as you go.</li>
+      <li><strong>Context Notes</strong> (<code>context-notes.md</code>) — decisions made during the work and the reasoning behind them. Append continuously.</li>
+    </ul>
+    <div class="note">If the user gives only a plan and asks you to start coding, stop and ask: "Should I create the checklist and context notes first?" The next session needs the notes to pick up where you left off without re-deriving every decision.</div>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">8</span> Run Tests Before Marking Complete</h2>
+    <div class="tagline">If you touched code, run the tests before saying "done".</div>
+    <ul>
+      <li><code>npm test</code>, <code>pytest</code>, <code>cargo test</code>, whatever the project uses — run it.</li>
+      <li>If tests pass, report results. If they fail, fix and re-run.</li>
+      <li>No test setup? At minimum, verify the project builds/compiles.</li>
+      <li>Run tests proactively, before the user signals "끝", "완료", "다 됐어" — not after.</li>
+    </ul>
+    <p>This is the step LLMs skip most often. Treat it as non-negotiable.</p>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">9</span> Semantic Commits</h2>
+    <div class="tagline">Commit when one logical change is complete. Don't wait for the user to ask.</div>
+    <ul>
+      <li>The test: "Can I describe this commit in one sentence?" If yes, commit. If no, the changes are still mixed — split them.</li>
+      <li>Good: "auth 미들웨어 추가". Bad: "auth 추가하고 UI도 고치고 버그도 수정" (split into 3).</li>
+      <li>Don't accumulate 20 unrelated edits and lose the ability to roll back individually.</li>
+      <li>Don't commit just to commit — meaningful units only.</li>
+    </ul>
+    <div class="note"><strong>Note:</strong> For solo prototypes or throwaway scripts, group commits loosely if it slows you down. The point is reversibility, not ceremony.</div>
+  </div>
+
+  <div class="rule">
+    <h2><span class="num">10</span> Read Errors, Don't Guess</h2>
+    <div class="tagline">Read the actual error/log line. Don't pattern-match from memory.</div>
+    <p>When something fails:</p>
+    <ul>
+      <li>Read the full error message and stack trace.</li>
+      <li>Check the actual log output, not what you assume it should say.</li>
+      <li>Don't apply a "common fix" before confirming the cause.</li>
+      <li>If unclear, add a print/log to verify state — then fix.</li>
+    </ul>
+    <p>This is the step LLMs skip most often after "run tests". They guess from error keywords and apply the most-recent-pattern fix. That's how a one-line bug becomes a three-file refactor.</p>
+  </div>
+
+  <footer>
+    <strong>These guidelines are working if:</strong> fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+  </footer>
+
+</div>
+</body>
+</html>

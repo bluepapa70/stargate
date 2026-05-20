@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -81,9 +82,12 @@ export default function HomeContent({ dateKey, hasOverrides }: Props) {
                 StarGate Horoscope
               </p>
               <div className="mt-5 flex justify-center">
-                <img
+                <Image
                   src="/zodiac.gif"
                   alt="황도 12궁 별자리"
+                  width={256}
+                  height={256}
+                  unoptimized
                   className="w-64 h-auto drop-shadow-[0_0_20px_rgba(196,160,245,0.4)]"
                 />
               </div>

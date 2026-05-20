@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { CompatibilityInsight } from "@/lib/compatibility";
 import type { PeriodForecast } from "@/lib/forecast-extensions";
@@ -65,9 +66,11 @@ export function HoroscopeDetail({
                 StarGate Horoscope
               </Link>
               <div className="mt-6 flex justify-center">
-                <img
+                <Image
                   src={constellationImages[sign.key]}
                   alt={sign.name}
+                  width={256}
+                  height={256}
                   className="w-64 h-auto drop-shadow-[0_0_20px_rgba(196,160,245,0.4)]"
                 />
               </div>
@@ -149,11 +152,12 @@ export function HoroscopeDetail({
                       <p className="mt-0.5 text-xs text-muted">{sign.birthstoneMeaning.join(" · ")}</p>
                     </dd>
                   </div>
-                  <div className="mt-3 overflow-hidden rounded-[1rem]">
-                    <img
+                  <div className="relative mt-3 h-32 overflow-hidden rounded-[1rem]">
+                    <Image
                       src={sign.birthstoneImage}
                       alt={sign.birthstone}
-                      className="h-32 w-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </dl>
@@ -249,7 +253,7 @@ export function HoroscopeDetail({
                   }`}
                 >
                   <div className="flex items-center gap-2">
-                    <img src={constellationImages[item.key]} alt={item.name} className="h-8 w-8 rounded-full object-cover" />
+                    <Image src={constellationImages[item.key]} alt={item.name} width={32} height={32} className="h-8 w-8 rounded-full object-cover" />
                     <p className="font-semibold text-deep">{item.name}</p>
                   </div>
                   <p className="mt-1 text-sm text-muted">/{dateKey}/{item.key}</p>
